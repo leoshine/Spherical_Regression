@@ -1,0 +1,12 @@
+aeroplane
+bicycle
+boat
+bottle
+bus
+car
+chair
+diningtable
+motorbike
+sofa
+train
+tvmonitor

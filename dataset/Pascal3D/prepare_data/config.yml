@@ -1,0 +1,6 @@
+
+# config.yml
+Pascal3D_release_root  : ../download.cache/PASCAL3D+_release1.1
+Synthetic_Images_root  : ../download.cache/syn_images_cropped_bkg_overlaid
+
+pkl_protocol           : -1   # the highest    change it to 2 for python2.x compatibility.

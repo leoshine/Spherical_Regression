@@ -1,0 +1,61 @@
+#=================================================================================================[from: common.modcfg.yml.sh]
+# Config dataset and eval module to use.
+#-------------------------------------------------------------------------------------
+IMPORT_eval    : {
+    GTbox : {  # viewpoint estimation on GT box.
+        from  : eval_quat_multilevel,
+        import: {eval_cates  : {}, compute_geo_dists : {}},
+        path  : $base_dir/lib/eval/GTbox/,
+    },
+}
+
+
+#=================================================================================================[from: makenet.modconf.yml.sh]
+
+net_arch: $net_arch
+
+IMPORT_makenet : {
+    from  : $MtdFamily,
+    import: { ${MtdType}_Net  : { net_arch: $net_arch, },  },
+    path  :   '$base_dir/$MtdFamily',
+}
+
+
+
+#=================================================================================================[from: default.run.conf.yml.sh]
+cates     : # Nothing here will return None. And by default it will use all 12 categories
+
+out_rslt_path : $this_dir/$work_dir.rslt.cache.txt
+out_eval_path : $this_dir/$work_dir.eval.cache.txt
+
+fix_conv1_conv2 : False
+
+IMPORT_dataset : {
+    from  : dataset_$MtdFamily,
+    import: { Dataset_$MtdType: { net_arch: $net_arch },
+              netcfg }, # [import variables]
+    path  : '$LIB_DIR/datasets/',
+}
+
+
+#----------------------------------------------
+# use gpu
+use_gpu    : True
+
+# pytorch specifics
+num_workers: 3
+pin_memory : True
+
+#---[solver control]
+# niter     : niter  # 40000
+# snapshot  : 20000
+snapshot_step_epoch : 50
+
+base_lr   : $base_lr  # 0.001 # 0.001
+momentum  : 0.9
+weight_decay: 0.0005  # 0.00001
+
+with_loss : Yes
+with_pred : No
+with_acc  : No
+#-----------------------------------------------

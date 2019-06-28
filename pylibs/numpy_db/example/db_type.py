@@ -1,0 +1,92 @@
+import numpy as np
+
+N_ANCHOR = 22
+MAX_PATH_LEN = 128
+
+# struct
+# Warning: the parameterization of viewpoint may not be correct (by using a,e,t to construct rotation matrix).
+viewpoint = [
+        #--[Extrinsic parameters]
+        ('a'                  , np.float32                         ),  # azimuth                     warning: this's new aet after adding displacement
+        ('e'                  , np.float32                         ),  # elevation                   warning: this's new aet after adding displacement
+        ('t'                  , np.float32                         ),  # theta (in-plane rotation )  warning: this's new aet after adding displacement
+        ('d'                  , np.float32                         ),  # camera distance.
+        #--[Intrinsic parameters]
+        ('px'                 , np.float32                         ),  # principle offset x
+        ('py'                 , np.float32                         ),  # principle offset y
+        ('f'                  , np.float32                         ),  # focal length
+        ('mx'                 , np.float32                         ),  # viewport: nr of pixel per unit in image coordinate in x direction.
+        ('my'                 , np.float32                         ),  # viewport: nr of pixel per unit in image coordinate in y direction.
+]
+
+
+# struct
+proj_info = [
+        ('valid'              , np.bool                            ),  # some object annotation is not able to project.
+        #---- Rotation matrix
+        ('R'                  , np.float32          , (3,3)        ),  # 3x3
+        ('anchor_cam3d'       , np.float32          , (N_ANCHOR,3) ),  # N*3    projected 3d location of anchor in camera space.
+        ('anchor_img2d'       , np.float32          , (N_ANCHOR,2) ),  # N*2    projected 2d location of anchor on image space.
+        ('anchor_visib'       , np.int8             , (N_ANCHOR,)  ),  # N*1    visibility
+]
+
+
+#-------------------------------------------------------------------------------
+image_info = [
+        ('image_id'           , (str,MAX_PATH_LEN)                 ),  # <primary key>
+        ('path'               , (str,MAX_PATH_LEN)                 ),
+        #--- original image size.
+        ('H'                  , np.int32                           ),  # (not the actually image size, but with maxium side 500.)
+        ('W'                  , np.int32                           ),
+        ('C'                  , np.int32                           ),  # image channel
+        #--- the actual image size the annotation is based on (with resizing by ratio).
+        # ratio     =  float      # H=int(h*ratio), W=int(w*ratio)
+        ('h'                  , np.int32                           ),
+        ('w'                  , np.int32                           ),
+]
+
+
+# [Table] for storing object annotation for Pascal3D+/Objectnet3D
+object_anno = [
+        ('obj_id'             , (str,MAX_PATH_LEN)                 ),  # <primary key>  format: obj_id  = {image_id}-{x1},{y1},{x2},{y2}  e.g. 2008_000251-24,14,410,245
+        #---------------------
+        ('category'           , (str,MAX_PATH_LEN)                 ),  # e.g. aeroplane, car, bike
+        ('cad_id'             , (str,MAX_PATH_LEN)                 ),  # e.g. aeroplane01  {category}{cad_idx}
+        ('nr_anchor'          , np.int32                           ),
+        ('bbox'               , np.float32          , 4            ),  # xmin,ymin,xmax,ymax  (float is because of scaling)
+        #----- source image info. (src_img.ratio indicate what size of image the anno based on.)
+        ('src_img'            , image_info                         ),
+        #----- viewpoint (camera model parameters)
+        ('gt_view'            , viewpoint                          ),
+        #----- projection info.
+        ('proj'               , proj_info                          ),
+        #==Other annotation.
+        ('difficult'          , np.int32                           ),
+        ('truncated'          , np.bool                            ),
+        ('occluded'           , np.bool                            ),
+]
+
+
+# [Table] that feed into dataengine.
+pose_hypo = [
+        ('pose_hypo_id'       , (str,MAX_PATH_LEN)                 ),  # <primary key>   format:   pose_id = {obj_id}_{a},{e},{t}     e.g. 2008_000251-24,14,410,245_144,0,2
+        ('pose_gt_id'         , (str,MAX_PATH_LEN)                 ),  # point to gt inside this table (for convenience)
+        ('obj_id'             , (str,MAX_PATH_LEN)                 ),  # <foreign key>
+        #----- view param and deviation.
+        ('hypo_view'          , viewpoint                          ),
+        ('delta_view'         , viewpoint                          ),  # hypo_view = gt_view + delta_view
+        #----- projection info.
+        ('proj'               , proj_info                          ),
+        #----- Flow array (Differece w.r.t ground truth pose)
+        ('anchor_flow3d'      , np.float32          , (N_ANCHOR,3) ),  # Flow of 'anchor_prj2d' between this and gt
+        ('anchor_flow2d'      , np.float32          , (N_ANCHOR,2) ),  # Flow of 'anchor_prj2d' between this and gt
+        #----- Distance (scalar)   if dist=0 --> gt
+        ('dist_geo'           , np.float32                         ),  # Geodesic distance to GT po
+        ('dist_flow3d'        , np.float32                         ),  # Sum of flow3d differences to GT pose.
+        ('dist_flow2d'        , np.float32                         ),  # Sum of flow2d differences to GT pose.
+        #--------------------------Obj info.
+        ('rendered_path'      , (str,MAX_PATH_LEN)                 ),  # Warning: string should less than MAX_PATH_LEN
+        ('pnccimg_path'       , (str,MAX_PATH_LEN)                 ),  # Warning: string should less than MAX_PATH_LEN
+        ('fused_path'         , (str,MAX_PATH_LEN)                 ),  # Warning: string should less than MAX_PATH_LEN
+        ('roiimg_path'        , (str,MAX_PATH_LEN)                 ),  # Warning: string should less than MAX_PATH_LEN
+]
