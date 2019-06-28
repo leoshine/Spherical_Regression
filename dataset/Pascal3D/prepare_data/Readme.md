@@ -14,6 +14,8 @@ Download Pascal3D+ from [this webpage](http://cvgl.stanford.edu/projects/pascal3
 Since we only need image data and annotations, you can choose this one [release1.1 ~ 7.5GB](ftp://cs.stanford.edu/cs/cvgl/PASCAL3D+_release1.1.zip).
 
 ```bash
+mkdir download.cache
+
 wget ftp://cs.stanford.edu/cs/cvgl/PASCAL3D+_release1.1.zip  -P download.cache/
 # unzip
 cd download.cache/
