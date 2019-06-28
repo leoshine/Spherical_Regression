@@ -147,7 +147,7 @@ test_loader  = torch.utils.data.DataLoader(dataset_test,  batch_size=_cfg.TEST.B
 
 
 #---------------------------------------------------------------------------------------------------[model]
-add_path(os.path.join(this_dir, 'models'))
+add_path(os.path.join(this_dir, 'model'))
 import regEulerNet
 
 _net_module = regEulerNet.__getattribute__(opt.net_module)
