@@ -68,7 +68,8 @@ bash  prepare_Pascal3D.sh
 
 **object_anno** (a.k.a rcobj) is a data structure stores the annotation per object. The visualization of such data structure is as following:
 
-![](data_structure.png)
+
+<img src="data_structure.png" alt="use_case" width="450"/>
 
 The python definition is implemented in 
 ```Pascal3D/anno_db_v2/db_type.py```

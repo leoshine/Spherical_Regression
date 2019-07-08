@@ -21,3 +21,7 @@ python prepare_anno_db.py
 
 # build up image lmdb.
 python build_imdb.py
+
+
+# generate ground truth box based on the actual image size.
+python gen_gt_box.py
