@@ -10,8 +10,7 @@ import cv2
 import pickle
 from tqdm import tqdm
 
-# from imagedata_lmdb import *
-from lmdb_util import NpyData_lmdb, ImageData_lmdb
+from lmdb_util import ImageData_lmdb
 
 from basic.util import load_yaml
 conf = load_yaml('config.yml')  # odict
