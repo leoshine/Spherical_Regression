@@ -200,7 +200,7 @@ if __name__ == '__main__':
     # for cate in categories:
     #     gen_anno_db(cate, MAX_STRING_LEN=64)
     #
-    from multiprocessing import Pool
-    pool = Pool(12)
+    from multiprocessing import Pool, cpu_count
+    pool = Pool(cpu_count())
     pool.map(gen_anno_db, categories)
 
