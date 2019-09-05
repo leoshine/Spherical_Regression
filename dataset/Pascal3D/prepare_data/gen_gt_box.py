@@ -47,11 +47,30 @@ def process(rcobj):
     y2 =min(y2, h-1)
 
     if x2<=x1 or y2<=y1:
-        error_record = '%-40s  %-20s  %d,%d,%d,%d'%(rcobj.category, rcobj.obj_id, x1,y1,x2,y2)
+        '''
+        It turns out there are two bad annotations in Pascal3D+ (inside the .mat they provided), where the bounding box [(x1,y1), (x2,y2)] violate the constraint x1<x2 and y1<y2.
+
+           (x1,y1) ----------------------+
+              |                          |
+              |                          |
+              |                          |
+              +------------------------(x2,y2)
+        e.g. x1, y1, x2, y2 = 464, 218, 328, 262 is an bad annotation.
+
+        The image ids and the bad bounding box are:
+            Category  | Image id         |  Bbox (x1, y1, x2, y2)
+            ----------+------------------+-----------------------
+            aeroplane | n02690373_190    |  659,326,499,331
+            motorbike | n03790512_11192  |  464,218,328,262
+            ------------------------------------------------------
+        '''
+
+        error_record = '%-40s  %-20s  %d,%d,%d,%d   --> replace with  [0,0,1,1]'%(rcobj.category, rcobj.obj_id, x1,y1,x2,y2)
         open('error-anno.txt','a+').write(error_record+'\n')
-        print ("[error-anno]  ", error_record)
-        exit()
-        # return []
+        print ("[Warning]  error-anno: ", error_record)
+        rcobj.bbox[:] = [0,0,1,1]  # dummy fix: replace with a fake bounding box.
+        return process(rcobj)  # process and check again.
+        # exit()
 
     gt_box = np.array([x1,y1,x2,y2], np.int32)
 
@@ -79,7 +98,6 @@ def main(collection='train', filter='all',
         objIDs, rcobjs = get_anno(cate, collection=collection, filter=filter)
 
         for _k, rcobj in enumerate(rcobjs): # tqdm()
-            # print ("%s    %s / %s        " % (cate, _k, len(rcobjs)))
             gt_box = process(rcobj) # resize_shape cate, _k, len(rcobjs)
             objId2gtbox[rcobj.obj_id] = gt_box
             nr_box += 1
@@ -98,6 +116,9 @@ if __name__ == '__main__':
     main( 'train', 'all' , cates=categories )
     main( 'val',   'all' , cates=categories )
 
+    # from Pascal3D import get_anno_db_tbl
+    # obj_tb = get_anno_db_tbl('motorbike', 'train', 'all')
+    # print(obj_tb['n03790512_11192-464,218,466,262'])
 
 """
 matlab code:
