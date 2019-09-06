@@ -33,14 +33,14 @@ bash ../trainval.sh  $GPUs  pretrained_on_pbrs  \
 
 # Wait the above to finish, and in the snapshots dir
 # there should be the pretrained weights files.
-# "regNormalNet/reg_Sexp/snapshots/vgg16se.N0.00_S1.00. pretrained_on_pbrs"
+# "regNormalNet/reg_Sexp/snapshots/vgg16se.N0.00_S1.00.pretrained_on_pbrs"
 
 
 # Fne-tune on NYU v2 for 60 epochs.
 bash ../trainval.sh  $GPUs  fine_tune_on_nyu   \
   --sample_nyu=1.00  --sample_syn=0.00         \ 
   --nr_epoch=60 --snapshot_step_epoch=10       \
-  --pretrain=snapshots/vgg16se.N0.00_S1.00. pretrained_on_pbrs
+  --pretrain=snapshots/vgg16se.N0.00_S1.00.pretrained_on_pbrs
 ```
 
 <br>
