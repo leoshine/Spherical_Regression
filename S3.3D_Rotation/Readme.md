@@ -1,3 +1,9 @@
+### Let's check some results visualization first ...
+<img src="../readme/3D_rotation_eg.png" alt="use_case" width="1000"/>
+
+<br>
+<br>
+
 **Please read through [this instruction](../dataset/ModelNet10-SO3/download_url.md) on datasets preparation.**
 
 ### Usage
@@ -21,9 +27,5 @@ cat {work_dir}/temp.out_eval_path.txt
 ```
 
 
-<br>
-<br>
-## Result visualization
-<img src="../readme/3D_rotation_eg.png" alt="use_case" width="1000"/>
 <br>
 <br>

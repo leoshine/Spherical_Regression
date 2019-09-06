@@ -1,3 +1,8 @@
+### Let's check some results visualization first ...
+<img src="../readme/surface_normal_eg.png" alt="use_case" width="800"/>
+
+
+<br>
 
 ## Note:
 
@@ -43,12 +48,6 @@ bash ../trainval.sh  $GPUs  fine_tune_on_nyu   \
   --pretrain=snapshots/vgg16se.N0.00_S1.00.pretrained_on_pbrs
 ```
 
-<br>
-<br>
-## Result visualization
-<img src="../readme/surface_normal_eg.png" alt="use_case" width="800"/>
-<br>
-<br>
 
 
 ### Reference
