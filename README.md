@@ -1,6 +1,6 @@
 
 ### News
-- [S1.Viewpoint part of code is released.](S1.Viewpoint/Readme.md) 
+- All parts of code are released. 
 
 ------------------------------------
 
@@ -10,15 +10,14 @@ This code contains 3 parts:
 
 |          Task                 |      Code              |           Dataset      |
 |-------------------------------|------------------------|------------------------|
-| **Viewpoint Estimation**      | [S1.Viewpoint](S1.Viewpoint/Readme.md)           | [Pascal3D+](http://cvgl.stanford.edu/projects/pascal3d.html) | | **Surface Normal Estimation** | S2.Surface_Normal [\*] | [NUY-v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html), [pbrs](https://github.com/yindaz/surface_normal#data)    | | **3D Rotation Estimation**    | S3.3D_Rotation         | [ModelNet10-SO3](#ModelNet10-SO3-Dataset) [new]   |
+| **Viewpoint Estimation**      | [S1.Viewpoint](S1.Viewpoint/Readme.md)           | [Pascal3D+](http://cvgl.stanford.edu/projects/pascal3d.html) | | **Surface Normal Estimation** | [S2.Surface_Normal](S2.Surface_Normal/Readme.md)     | [NUY-v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html), [pbrs](https://github.com/yindaz/surface_normal#data)    | | **3D Rotation Estimation**    | [S3.3D_Rotation](S3.3D_Rotation/Readme.md)         | [ModelNet10-SO3](#ModelNet10-SO3-Dataset) [new]   |
 
 
 
 <!-- ##-Dataset:-ModelNet10-SO3--[New]
 - **Viewpoint Estimation** on ***Pascal3D+*** : S1.Viewpoint           [*]- **Surface Normal Estimation** on ***NUY v2*** : S2.Surface_Normal [*]- **3D Rotation Estimation** on ***ModelNet10-SO3***: S3.3D_Rotation
-- -->
-
 [*] To be cleaned up and released soon.
+- -->
 
 You can find our CVPR 2019 paper here: [[pdf](http://openaccess.thecvf.com/content_CVPR_2019/papers/Liao_Spherical_Regression_Learning_Viewpoints_Surface_Normals_and_3D_Rotations_on_CVPR_2019_paper.pdf)] [[supp](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Liao_Spherical_Regression_Learning_CVPR_2019_supplemental.pdf)]. 
 

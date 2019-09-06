@@ -5,7 +5,7 @@ This is the Pytorch implementation of [Zhang et al. CVPR17], which originally wa
 
 **Please read through [this instruction](..//dataset/SurfaceNormal/download_url.md) carefully on datasets preparation.**
 
-We follow the same training setup as [Zhang et al. CVPR17], that is we ﬁrst pre-train on the selected 568K synthetic data provided by [39] for 8 epochs, and ﬁne-tune on NYU v2 for 60 epochs.
+We follow the same training setup as [Zhang et al. CVPR17], that is we ﬁrst pre-train on the selected 568K synthetic data provided by [Zhang et al. CVPR17] for 8 epochs, and ﬁne-tune on NYU v2 for 60 epochs.
 
 
 ```bash
