@@ -1,0 +1,53 @@
+#=================================================================================================[from: common.modcfg.yml.sh]
+# Config dataset and eval module to use.
+#-------------------------------------------------------------------------------------
+IMPORT_eval    : {
+    lmdb : {
+        from  : eval_sn,
+        import: {eval_all  : {},},
+        path  : $base_dir/lib/eval/,
+    },
+}
+
+
+
+#=================================================================================================[from: makenet.modconf.yml.sh]
+net_arch: $net_arch
+
+IMPORT_makenet : {
+    from  : $MtdFamily,
+    import: { ${MtdType}_Net  : { net_arch: $net_arch, },  },
+    path  :   '$base_dir/$MtdFamily',
+}
+
+#=================================================================================================[from: default.run.conf.yml.sh]
+out_rslt_path : $this_dir/$work_dir.rslt.cache.txt
+out_eval_path : $this_dir/$work_dir.eval.cache.txt
+
+IMPORT_dataset : {
+    from  : dataengine_v2,
+    import: { Dataset_$MtdType: { net_arch: $net_arch },
+              netcfg },
+    path  : '$LIB_DIR/datasets/',
+}
+
+#----------------------------------------------
+# use gpu
+use_gpu    : True
+gpu_ids    : [$device_ids]
+
+# pytorch specifics
+num_workers: 3
+pin_memory : True
+
+#---[solver control]
+snapshot_step_epoch : 1 # 30
+
+base_lr   : $base_lr    # 0.001
+momentum  : 0.9
+weight_decay: 0.0005    # 0.00001
+
+with_loss : Yes
+with_pred : No
+with_acc  : No
+#-----------------------------------------------

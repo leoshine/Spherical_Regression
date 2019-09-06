@@ -264,7 +264,8 @@ def _copy_weights_from_torchmodel(own_state, pretrained_type='alexnet', strict=T
     print ("[Info] Copy from  %s " % pretrained_type)
     print ("-----------------------")
     src_state = model_zoo.load_url(cfg.torchmodel[pretrained_type].model_url)
-    not_copied = own_state.keys()
+    not_copied = list(own_state.keys())
+    # print(type(not_copied))
 
     if src2dsts is not None:
         for src, dsts in src2dsts.items():

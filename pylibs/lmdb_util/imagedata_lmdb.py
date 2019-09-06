@@ -275,8 +275,8 @@ class ImageData_lmdb:
             yamlfile = os.path.join(db_path, 'remap.yml')
             if self.mode in ['r','a']:
                 ''' e.g. {dtype: 32FC2, min : 0.0, max : 1.0} '''
-                remap = load_yaml(yamlfile)
-                print('--------->', remap)
+                remap = load_yaml(yamlfile) if os.path.exists(yamlfile) else None
+                print('---------> remap yaml: ', remap)
             else: # write mode
                 remap = kwargs.get('remap', None)
                 print("Write png with remap: %s" % remap)

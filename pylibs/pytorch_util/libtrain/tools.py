@@ -6,7 +6,8 @@ def get_stripped_DataParallel_state_dict(m, base_name='', newdict=OrderedDict())
     """
     try:
         # Test if any child exist.
-        m.children().next()
+        # m.children().next()
+        next(m.children())
         # Pass test, has one or more children
         if isinstance(m, torch.nn.DataParallel):
             assert len([x for x in m.children()])==1, "DataParallel module should only have one child, namely, m.module"

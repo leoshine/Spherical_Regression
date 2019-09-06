@@ -57,7 +57,7 @@ def check(cates=categories):
     for cate in cates:
         print(cate)
         for collection in ['train', 'val']:
-            objIDs, rcobjs = get_anno(cate, collection=collection)
+            objIDs, rcobjs = get_anno(cate, collection=collection, filter='all')
             for _k, rcobj in enumerate(rcobjs):
                 check_one(rcobj) # resize_shape cate, _k, len(rcobjs)
 

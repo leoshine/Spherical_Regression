@@ -10,7 +10,7 @@ This code contains 3 parts:
 
 |          Task                 |      Code              |           Dataset      |
 |-------------------------------|------------------------|------------------------|
-| **Viewpoint Estimation**      | [S1.Viewpoint](S1.Viewpoint/Readme.md)           | [Pascal3D+](http://cvgl.stanford.edu/projects/pascal3d.html) | | **Surface Normal Estimation** | S2.Surface_Normal [\*] | [NUY-v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)    | | **3D Rotation Estimation**    | S3.3D_Rotation         | [ModelNet10-SO3](#ModelNet10-SO3-Dataset) [new]   |
+| **Viewpoint Estimation**      | [S1.Viewpoint](S1.Viewpoint/Readme.md)           | [Pascal3D+](http://cvgl.stanford.edu/projects/pascal3d.html) | | **Surface Normal Estimation** | S2.Surface_Normal [\*] | [NUY-v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html), [pbrs](https://github.com/yindaz/surface_normal#data)    | | **3D Rotation Estimation**    | S3.3D_Rotation         | [ModelNet10-SO3](#ModelNet10-SO3-Dataset) [new]   |
 
 
 
@@ -20,7 +20,9 @@ This code contains 3 parts:
 
 [*] To be cleaned up and released soon.
 
-You can find paper [here](http://arxiv.org/abs/1904.05404).
+You can find our CVPR 2019 paper here: [[pdf](http://openaccess.thecvf.com/content_CVPR_2019/papers/Liao_Spherical_Regression_Learning_Viewpoints_Surface_Normals_and_3D_Rotations_on_CVPR_2019_paper.pdf)] [[supp](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Liao_Spherical_Regression_Learning_CVPR_2019_supplemental.pdf)]. 
+
+Or the arXiv [[pdf](http://arxiv.org/abs/1904.05404)].
  
 
 ## What is Spherical regression?
