@@ -19,3 +19,11 @@ cd S3.3D_Rotation/regQuatNet/reg_Sexp
 ```bash
 cat {work_dir}/temp.out_eval_path.txt
 ```
+
+
+<br>
+<br>
+## Result visualization
+<img src="../readme/3D_rotation_eg.png" alt="use_case" width="1000"/>
+<br>
+<br>

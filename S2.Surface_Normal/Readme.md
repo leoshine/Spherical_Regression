@@ -45,7 +45,11 @@ bash ../trainval.sh  $GPUs  fine_tune_on_nyu   \
 
 <br>
 <br>
+## Result visualization
+<img src="../readme/surface_normal_eg.png" alt="use_case" width="800"/>
 <br>
+<br>
+
 
 ### Reference
 
