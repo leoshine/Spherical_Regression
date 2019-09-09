@@ -4,7 +4,7 @@
 <br>
 <br>
 
-**Please read through [this instruction](../dataset/ModelNet10-SO3/download_url.md) on datasets preparation.**
+**Please read through [this instruction](../dataset/ModelNet10-SO3/Readme.md) on datasets preparation.**
 
 ### Usage
 
