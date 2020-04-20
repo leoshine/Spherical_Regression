@@ -36,8 +36,6 @@ cd  ..
 
 ### Adjust your configuration paths at:
 
-~/working/cvpr19regpose/code.release/dataset/Pascal3D/download.cache
-
 ```yaml
 # config.yml
 Pascal3D_release_root  : ../download.cache/PASCAL3D+_release1.1  
