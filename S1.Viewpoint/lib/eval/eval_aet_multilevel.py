@@ -113,7 +113,7 @@ def geodesic_dist(R, R_gt):  # _geo_err
     R, R_gt = map(np.matrix, [R, R_gt])
     # With out disp annoying error
     _logRR, errest = logm(R.transpose()*R_gt, disp=False)
-    R_angle  = norm(_logRR, 2) / sqrt(2)
+    R_angle  = norm(_logRR, 'fro') / sqrt(2)
     # This will do print("logm result may be inaccurate, approximate err =", errest)
     # R_angle  = norm(logm(R.transpose()*R_gt), 2) / sqrt(2)
     #
@@ -132,7 +132,7 @@ def geodesic_dist_new(R, R_gt):  # _geo_err
     # Do clipping to [-1,1].
     # For a few cases, (tr(R)-1)/2 can be a little bit less/greater than -1/1.
     logR_F = np.clip( (np.trace(R.transpose()*R_gt)-1.)/2., -1, 1)
-    R_angle = np.arccos( logR_F ) / np.sqrt(2)
+    R_angle = np.arccos( logR_F )
     # This can return nan when inside is out of range [-1,1]
     # R_angle = np.arccos( (np.trace(R.transpose()*R_gt)-1.)/2. ) / np.sqrt(2)
     return R_angle
