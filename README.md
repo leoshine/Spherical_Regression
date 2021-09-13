@@ -1,7 +1,9 @@
 
 ### News
 
-- **[Important]** Fixed the evaluation function in [S3.3D_Rotation](S3.3D_Rotation/Readme.md), and update the reported performance.
+**[Important]**   The evaluation function for [S1.Viewpoint](S1.Viewpoint/Note.md) and [S3.3D_Rotation](S3.3D_Rotation/Readme.md) is fixed; The reported performance is also updated.
+
+
 
 
 ------------------------------------
@@ -17,11 +19,6 @@ This code contains 3 parts:
 | **3D Rotation Estimation**    | [S3.3D_Rotation](S3.3D_Rotation/Readme.md)         | [ModelNet10-SO3](#ModelNet10-SO3-Dataset) [new]   |
 
 
-
-<!--
-<img src="https://latex.codecogs.com/svg.latex?\inline&space;\dpi{300}&space;\bg_white&space;\small&space;\mathbb{R}^{(n&plus;1)}" title="\small \mathbb{R}^{(n+1)}" />
-
--->
 
 You can find our CVPR 2019 paper here: [[pdf](http://openaccess.thecvf.com/content_CVPR_2019/papers/Liao_Spherical_Regression_Learning_Viewpoints_Surface_Normals_and_3D_Rotations_on_CVPR_2019_paper.pdf)] [[supp](http://openaccess.thecvf.com/content_CVPR_2019/supplemental/Liao_Spherical_Regression_Learning_CVPR_2019_supplemental.pdf)].
 

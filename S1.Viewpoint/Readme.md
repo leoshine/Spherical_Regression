@@ -1,6 +1,10 @@
+
+
+
+
 ## Prepare Dataset
 
-Please read through [this instruction](../dataset/Pascal3D/prepare_data/Readme.md) carefully on the data organisation, data structure and data preparation.
+Please read through [this instruction](../dataset/Pascal3D/prepare_data/Readme.md) on the data organisation, data structure and data preparation.
 
 ## Usage
 
@@ -43,7 +47,6 @@ bash trainval.sh 0,1 --net_arch=resnet101  --pretrained=caffemodel
 ```bash
 cat {work_dir}/out_eval_path.txt
 ```
-
 
 
 
