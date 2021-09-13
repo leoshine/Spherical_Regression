@@ -1,18 +1,26 @@
 ### Update
 
-We find the evaluation function takes a wrong type of matrix norm which result from one of the previous matlab implmentation. Please see the detailed discussion [here](https://github.com/leoshine/Spherical_Regression/issues/8). This means all the distance value are $\sqrt 2$​ times smaller that actual ones. Thus the reported performance (Table 1.)  is incorrect.  We apology for this and update the performance here.
+We find the evaluation function takes a wrong type of matrix norm which result from one of the previous Matlab implementation. Please see the detailed discussion [here](https://github.com/leoshine/Spherical_Regression/issues/8). This means all the distance values are sqrt(2) times smaller than actual ones. Thus the reported performance (Table 1.)  is incorrect.  We apology for this and update the performance here.
+
+
+
+- *The previously reported performance:*
+
+<img src="../readme/so1_results.png" alt="so1_results" style="zoom:50%;" />
+
+- Partially updated version:
 
 <center><b>A few updates for Table1.</b></center>
 
 |                           | MedErr                                           | Acc@pi/6                                         | comment                                                      |
 | ------------------------- | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
-| Mahendran et al. [22]     | 16.6                                             | N/A                                              | # code not available                                         |
+| Mahendran et al. [22]     | 16.6                                             | N/A                                              | # code is not available                                      |
 | Tulsiani and Malik [35]   | 13.6                                             | 80.8                                             | # [seems correct](https://github.com/shubhtuls/ViewpointsAndKeypoints/blob/1d57050601f4a3f7842b2953be524f47d4f53b36/evaluate/evaluatePredictionError.m) |
 | Mousavian et al. [26]     | 11.1                                             | 81.0                                             | # [correct](https://github.com/geopavlakos/object3d/blob/master/code/pascal3d_res.m) |
 | Su et al. [33]            | <span style='color:red'>***11.7***    (?)</span> | <span style='color:red'>***82.0***    (?)</span> | # [[seems incorrect]](https://github.com/ShapeNet/RenderForCNN/blob/c0bee04aad3dc2f0ae5de71daf6d51664ce02e76/view_estimation/compute_vp_acc_mederror.m#L16) |
 | Penedones et al. [28]†    | ~~**11.6**~~   16.4                              | ~~**83.6**~~   77.8                              | # [fixed](https://github.com/leoshine/Spherical_Regression/commit/4fce2986600b4739fffbfa7501f18a47abe095e3) |
 | Prokudin et al. [29]      | <span style='color:red'>***12.2***    (?)</span> | <span style='color:red'>***83.8***    (?)</span> | # [[seems incorrect]](https://github.com/sergeyprokudin/deep_direct_stat/blob/master/view_estimation/compute_vp_acc_mederror.m) (same as [33]) |
-| Grabner et al. [13]       | 10.9                                             | 83.9                                             | # code not available                                         |
+| Grabner et al. [13]       | 10.9                                             | 83.9                                             | # code is not available                                      |
 | Mahendran et al. [23]     | 10.1                                             | 85.9                                             | # [correct ](https://github.com/JHUVisionLab/multi-modal-regression/blob/master/evaluateGeodesicBDModel_quaternion.py) |
 | This paper: [28]†+ S1_exp | ~~**9.2**~~   13.0                               | ~~**88.2**~~   83.4                              | # [fixed](https://github.com/leoshine/Spherical_Regression/commit/4fce2986600b4739fffbfa7501f18a47abe095e3) |
 

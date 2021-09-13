@@ -1,7 +1,7 @@
 
 ### News
 
-**[Important]**   The evaluation function for [S1.Viewpoint](S1.Viewpoint/Note.md) and [S3.3D_Rotation](S3.3D_Rotation/Readme.md) is fixed; The reported performance is also updated.
+**[Important]**   The evaluation functions for [S1.Viewpoint](S1.Viewpoint/Note.md) and [S3.3D_Rotation](S3.3D_Rotation/Readme.md) are fixed, and so do the reported performance.
 
 
 

@@ -1,7 +1,3 @@
-
-
-
-
 ## Prepare Dataset
 
 Please read through [this instruction](../dataset/Pascal3D/prepare_data/Readme.md) on the data organisation, data structure and data preparation.

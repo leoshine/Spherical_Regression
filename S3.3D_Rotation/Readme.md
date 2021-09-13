@@ -1,8 +1,8 @@
 ### Update:
 
-We find the evaluation function takes a wrong type of matrix norm which result from one of the previous matlab implmentation.
-Please see the detailed discussion [here](https://github.com/leoshine/Spherical_Regression/issues/8).
-This means all the distance value are sqrt(2) times smaller that actual ones. Thus the reported performance (Table 3.) in the paper is incorrect. 
+
+
+We find the evaluation function takes a wrong type of matrix norm which result from one of the previous Matlab implementation. Please see the detailed discussion [here](https://github.com/leoshine/Spherical_Regression/issues/8). This means all the distance values are sqrt(2) times smaller than actual ones. Thus the reported performance (Table 3.) in the paper is incorrect. 
 We apology for this and update the performance here.
 
 * *The previously reported performance:*
@@ -19,7 +19,7 @@ We apology for this and update the performance here.
 | VGG16   (Direct+smooth-L1) |     -       |     -      |     -     |     -     |
 | VGG16   (S_flat)           |    37.8     |    54.9    |    38.2   |   16.6    |
 | VGG16   (S_exp)            |    28.7     |    65.8    |    49.6   |   25.2    |
- 
+
 
 [TODO] "-" to be updated.
 
@@ -45,7 +45,8 @@ We apology for this and update the performance here.
 # The model and result will be stored here.
 cd S3.3D_Rotation/regQuatNet/reg_Sexp
 
-# e.g. bash ../trainval.sh  {NetArch}  {GPU_IDs}bash ../trainval.sh  alexnet  0
+# e.g. bash ../trainval.sh  {NetArch}  {GPU_IDs}
+bash ../trainval.sh  alexnet  0
 
 ```
 
