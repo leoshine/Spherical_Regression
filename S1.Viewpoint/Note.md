@@ -6,7 +6,7 @@ We find the evaluation function takes a wrong type of matrix norm which result f
 
 - *The previously reported performance:*
 
-<img src="../readme/so1_results.png" alt="so1_results" style="zoom:50%;" />
+<img src="../readme/so1_results.png" alt="so1_results" align="middle" width="350" />
 
 - Partially updated version:
 
